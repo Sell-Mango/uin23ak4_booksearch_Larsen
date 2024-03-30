@@ -1,8 +1,12 @@
-# React + Vite
+# Boksøk: Arbeidskrav 4 i faget Utvikling av interaktive nettsider
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+######################
+1. Naviger til mappen uin23ak4_booksearch_Larsen i en ny terminal
+2. Kjør følgende kommandoer
+   - npm i
+   - npm run dev
+######################
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Følgende pakker er installert:
+- Sass
+- react-simple-star-rating
