@@ -5,6 +5,7 @@
 2. Kjør følgende kommandoer
    - npm i
    - npm run dev
+   
 ######################
 
 Følgende pakker er installert:
