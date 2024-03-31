@@ -1,0 +1,26 @@
+// _mediaQueries.scss
+@media only screen and (min-width: 776px) {
+    main {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    main {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    header {
+        @include flexDisplay(row, nowrap);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .searchBar {
+        width: 40%;
+
+    input, img {
+      padding: 10px 20px;
+    }
+    }
+}

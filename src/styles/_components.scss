@@ -1,0 +1,120 @@
+// _components.scss
+// Buttons
+@mixin btn($color, $weight, $align, $border: 1px, $border-color: $accent, $decoration: none) {
+    text-decoration: $decoration;
+    color: $color;
+    border: $border solid $border-color;
+    font-weight: $weight;
+    text-align: $align;
+}
+
+.btn {
+    @include btn($secondary, 600, center);
+    border-radius: $radius-l;
+}
+
+.btn-fill {
+    background-color: $accent;
+}
+
+.btn-icon {
+    @include flexDisplay(row, nowrap);
+
+    img {
+        align-self: center;
+      }
+}
+
+.btn-m {
+    padding: 0.8rem 3rem;
+    font-size: $text-l;
+}
+
+.btn-l {
+    padding: 1rem 3rem;
+    font-size: $text-l;
+    gap: 0.5rem;
+
+    img { 
+      width: $text-l;
+      height: $text-l;
+    }
+}
+
+// Search results
+.searchResults {
+    font-weight: 600;
+}
+
+
+  // Search bar
+.searchBar {
+    @include flexDisplay(row, nowrap);
+    justify-content: space-between;
+    width: 100%;
+    background-color: $primary-97;
+    border: 1px solid $primary-66;
+    border-radius: $radius-l;
+    
+
+    input {
+      width: 90%;
+      font-size: $text-l;
+    }
+
+    input, img {
+      padding: 10px 20px;
+    }
+}
+
+// Book cards
+.bookCard {
+    @include flexDisplay(column, wrap);
+    align-items: flex-start;
+    position: relative;
+    font-size: $text-m;
+    background-color: $primary-97;
+    border-radius: $radius-m;
+    overflow: hidden;
+
+    section {
+        padding: $space-m;
+    }
+
+    h2 {
+      font-size: $heading-m;
+    }
+
+    .btn {
+        display: block;
+        margin-top: $space-m;
+    }
+
+    button {
+    position: absolute;
+    top: $space-s;
+    right: $space-s;
+      background-color: $accent;
+      padding: $space-xs;
+      border-radius: $radius-full;
+      
+      img {
+        width: $heading-s;
+      }
+    }
+
+    picture {
+      width: 100%;
+      height: 18rem;
+      order: -1;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }

@@ -1,0 +1,51 @@
+// _layout.scss
+body {
+    padding-left: $gutter;
+    padding-right: $gutter;
+    min-width: $min-width;
+    max-width: $max-width;
+    margin: 0 auto;
+
+    box-sizing: border-box;
+    overflow-x: hidden;
+    line-height: 1.5;
+    color: $secondary;
+    background-color: $primary;
+}
+
+#root {
+    @include gridDisplay($space-l);
+    padding-top: 5vh;
+}
+
+header {
+    @include flexDisplay(column, wrap, $space-m);
+    align-items: flex-start;
+    padding-bottom: $space-m;
+    border-bottom: 1px solid $primary-94;
+  }
+
+main {
+    @include gridDisplay($space-m);
+    padding-top: $space-m;
+
+    > :first-child { grid-column: 1 / -1; }
+}
+
+footer {
+    @include flexDisplay(column, wrap, $space-l);
+    align-items: center;
+    font-size: $text-m;
+
+    h2 { font-size: $heading-s; }
+
+    ul {
+        @include flexDisplay(row, nowrap, $space-s);
+
+        li {
+            list-style: none;
+            font-size: $text-l;
+        }
+    }
+    a { color: $secondary; }
+}
