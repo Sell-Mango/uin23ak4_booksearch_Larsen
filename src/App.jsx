@@ -1,33 +1,40 @@
 import { useState, useEffect } from 'react'
 import star_outline from './assets/Star_outline.svg'
 import Search from './assets/Search.svg'
-import testimg from './img/5cbe235ddaa9a96cfe352384.webp'
+
 
 function App() {
 
-  const cover_img_url = "https://covers.openlibrary.org/a/olid/"
-
-  const [numResults, setNumResults] = useState()
   const [content, setContent] = useState([])
   const [query, setQuery] = useState("james bond")
+  const [isPending, setIsPending] = useState(false)
+  const [status, setStatus] = useState("Loading results...")
 
   const getData = async(title) => {
     try {
-      const response = await fetch(`https://openlibrary.org/search.json?title=${title}`)
+      const response = await fetch(`https://openlibrary.org/search.json?title=${title}&fields=key,title,author_name,isbn,cover_i,average_ratings,amazon_id,first_publish_year`)
       const data = await response.json()
-      console.log(data.docs)
-      
-      setNumResults(data.numFound)
+
       setContent(data.docs)
+      setIsPending(true)
     }
     catch {
+      setStatus("Could not load books :(")
       console.error("det har skjedd en feil")
     }
   }
 
   useEffect(() => {
     getData(query)
-  }, [])
+  }, [query])
+
+  console.log(content)
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    setIsPending(false)
+    setQuery(e.target.value)
+  }
 
   return (
     <>
@@ -35,28 +42,29 @@ function App() {
         <h1>BookSearch</h1>
         <a href="#" className="btn btn-icon btn-fill btn-l"><span>Favourites</span><img src={star_outline} alt="star-icon" /></a>
         <form className="searchBar">
-          <input type="text" placeholder="Search your favourite books..." />
+          <input type="text" onChange={handleSearch} value={query} placeholder="Search your favourite books..." />
           <img src={Search} alt="" />
         </form>
       </header>
       <main>
-        <p className="searchResults">Showing {numResults} results for: {query}</p>
-        {content.map((book) => (
+        { isPending ? <p className="searchResults">Showing {content.length} results for: {query}</p> : <p className='searchResults'>{status}</p> }
+        {content.map((book, index) => (
           <article className="bookCard" key={book.key}>
             <section>
-              <span className="rating">Rating: {book.ratings_average}/6</span>
+              { /*<span className="rating">Rating: <Rating initialValue={3.5} disableFillHover={true} /></span> */ }
               <h2>{book.title}</h2>
               <p>Author: {book.author_name}</p>
               <p>First published: {book.first_publish_year}</p>
-              <a href="#" className="btn btn-m">Read more</a>
+              <a href={`https://www.amazon.com/s?k=${content[index].isbn}`} className="btn btn-m">Read more</a>
             </section>
             <button><img src={star_outline} alt="" /></button>
             <picture>
-              <img src={`https://covers.openlibrary.org/a/olid/${book.cover_edition_key}.jpg`} alt="" />
+              <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="" /> 
             </picture>
           </article>
 
         ))}
+
 
       </main>
       <footer>
