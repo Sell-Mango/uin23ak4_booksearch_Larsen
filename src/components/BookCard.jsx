@@ -1,3 +1,4 @@
+import Button from './Button'
 import star_outline from '../assets/Star_outline.svg'
 
 export default function BookCard({ book }) {
@@ -9,7 +10,7 @@ export default function BookCard({ book }) {
             <h2>{book.title}</h2>
             <p>Author: {book.author_name}</p>
             <p>First published: {book.first_publish_year}</p>
-            <a href={`https://www.amazon.com/s?k=${book.isbn}`} className="btn btn-m">Read more</a>
+            { book.isbn?.[0] && (<Button href={`https://www.amazon.com/s?k=${book.isbn[0]}`} classes={["btn btn-m"]} text="Read more" />) }
           </section>
           <button><img src={star_outline} alt="" /></button>
           <picture>
