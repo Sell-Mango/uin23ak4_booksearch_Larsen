@@ -11,6 +11,7 @@ export default function BookCard({ book }) {
             <p>Author: {book.author_name}</p>
             <p>First published: {book.first_publish_year}</p>
             { book.isbn?.[0] && (<Button href={`https://www.amazon.com/s?k=${book.isbn[0]}`} classes={["btn btn-m"]} text="Read more" />) }
+            <Button href={`/books${book.key}`} classes={["btn btn-m"]} text="Read more" />
           </section>
           <button><img src={star_outline} alt="" /></button>
           <picture>

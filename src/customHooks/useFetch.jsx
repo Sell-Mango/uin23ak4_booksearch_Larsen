@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function useFetch(query, fields) {
+function useFetch(query) {
 
     const statusMessages = {
         "loading" : "Loading results...",
@@ -15,7 +15,7 @@ function useFetch(query, fields) {
 
     const getData = async(query) => {
         try {
-          const response = await fetch(`https://openlibrary.org/search.json?title=${query}&fields=${fields}&limit=20`)
+          const response = await fetch(query)
           const data = await response.json()
     
           setContent(data.docs)
