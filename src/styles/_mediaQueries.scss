@@ -11,7 +11,7 @@
     }
 
     header {
-        @include flexDisplay(row, nowrap);
+        @include flexDisplay(row, wrap, $space-m);
         justify-content: space-between;
         align-items: center;
     }
@@ -19,8 +19,16 @@
     .searchBar {
         width: 40%;
 
-    input, img {
-      padding: 10px 20px;
+      input, img {
+        padding: 10px 20px;
+      }
     }
+
+    .bookContent {
+      @include gridDisplay($space-l, 1fr 1fr);
+
+      img {
+        order: 1;
+      }
     }
 }

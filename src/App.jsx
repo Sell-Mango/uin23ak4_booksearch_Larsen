@@ -2,11 +2,6 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import useFetch from './customHooks/useFetch'
 import Home from './components/Home'
-import SearchBar from './components/SearchBar'
-import star_outline from './assets/Star_outline.svg'
-import Footer from './components/Footer'
-import Title from './components/Title'
-import Button from './components/Button'
 import BookPage from './components/BookPage'
 
 function App() {
@@ -20,23 +15,15 @@ function App() {
     setQuery(e.target.value)
   }
 
-  console.log(content)
+  //console.log(content)
 
   return (
     <>
     <Router>
-      <header>
-        <Title value="BookSearch" />
-        <Button href="#" icon={[star_outline, "star icon"]} classes={["btn-fill", "btn-l", "btn-icon"]} text="Favourites" />
-        <SearchBar handleSearch={handleSearch} query={query}/>
-      </header>
-      <main>
       <Routes>
-        <Route path="/" element={<Home isPending={isPending} statusMessage={statusMessage} query={query} content={content} />} />
+        <Route path="/" element={<Home isPending={isPending} statusMessage={statusMessage} query={query} content={content.docs} handleSearch={handleSearch} />} />
         <Route path='/books/works/:id' element={<BookPage />} />
       </Routes>
-      </main>
-      <Footer />
     </Router>
     </>
   )

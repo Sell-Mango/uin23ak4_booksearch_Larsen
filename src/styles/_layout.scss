@@ -29,7 +29,7 @@ main {
     @include gridDisplay($space-m);
     padding-top: $space-m;
 
-    > :first-child { grid-column: 1 / -1; }
+    > .searchResults { grid-column: 1 / -1; }
 }
 
 footer {

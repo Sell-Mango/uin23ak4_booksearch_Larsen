@@ -18,6 +18,9 @@ $heading-s: clamp(2.4rem, calc(2.4rem + ((1vw - 0.4rem) * 0.6768)), 2.8rem);
 
 $text-m: clamp(1.6rem, calc(1.6rem + ((1vw - 0.4rem) * 0.3384)), 1.8rem);
 $text-l: clamp(1.8rem, calc(1.8rem + ((1vw - 0.4rem) * 0.3384)), 2rem);
+$text-xl: clamp(2rem, calc(2rem + ((1vw - 0.4rem) * 0.6768)), 2.4rem);
+
+$w-600: 600;
 
 // Document setup
 $gutter: clamp(2rem, calc(2rem + ((1vw - 0.4rem) * 1.25)), 3rem);
@@ -79,10 +82,13 @@ input {
 
 button {
   border: 1px transparent;
+  background: transparent;
 }
   
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.w-600 {font-weight: $w-600;}
   

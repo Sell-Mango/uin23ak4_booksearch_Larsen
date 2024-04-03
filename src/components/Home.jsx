@@ -1,12 +1,26 @@
 import BookCards from "./BookCards"
 import ResultsStatus from './ResultsStatus'
 
-export default function Home({isPending, statusMessage, query, content}) {
+import SearchBar from './SearchBar'
+import star_outline from '../assets/Star_outline.svg'
+import Footer from './Footer'
+import Title from './Title'
+import Button from './Button'
+
+export default function Home({isPending, statusMessage, query, content, handleSearch}) {
 
     return (
         <>
-        <ResultsStatus isPending={isPending} statusMessage={statusMessage} query={query} content={content} />
-        {!isPending && <BookCards content={content} /> }
+        <header>
+            <Title value="BookSearch" />
+            <Button href="#" icon={[star_outline, "star icon"]} classes={["btn-fill", "btn-l", "btn-icon"]} text="Favourites" />
+            <SearchBar handleSearch={handleSearch} query={query}/>
+        </header>
+        <main>
+            <ResultsStatus isPending={isPending} statusMessage={statusMessage} query={query} content={content} />
+            {!isPending && <BookCards content={content} /> }
+        </main>
+        <Footer />
         </>
     )
 }

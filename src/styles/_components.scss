@@ -118,3 +118,27 @@
       }
     }
   }
+
+  .backBtn {
+    @include flexDisplay(row, nowrap, $space-s);
+    align-items: center;
+    font-size: $text-xl;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .bookContent {
+    @include gridDisplay($space-l);
+
+    section {
+      @include flexDisplay(column, wrap, $space-s);
+      font-size: $text-l;
+    }
+
+    img {
+      order: -1;
+      width: 100%;
+      border-radius: $radius-m;
+    }
+  }

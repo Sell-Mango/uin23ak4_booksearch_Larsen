@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function useFetch(query) {
+function useFetch(query, varName) {
 
     const statusMessages = {
         "loading" : "Loading results...",
@@ -18,7 +18,7 @@ function useFetch(query) {
           const response = await fetch(query)
           const data = await response.json()
     
-          setContent(data.docs)
+          setContent(data)
     
           setIsPending(false)
         }
