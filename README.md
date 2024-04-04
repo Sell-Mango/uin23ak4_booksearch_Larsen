@@ -2,17 +2,17 @@
 
 **Installasjon**
 1. Naviger til mappen uin23ak4_booksearch_Larsen i en ny terminal
-2. Kjør følgende kommandoer
+2. Kjør følgende kommandoer:
    - npm i
    - npm run dev
 
-**Følgende pakker skal også bli installert:**
+**Følgende pakker blir også bli installert**
 - Sass
 - react-router-dom
 - react-simple-star-rating
 
 
-**Side-notes:** 
+**Side-notes** 
 - Favourites knapper er bare til pynt.
 - Flyttet knapp som leder til Amazon søk til profilsiden for en bestemt bok.
 - Mange bøker hadde ikke id_amazon, bruker heller første resultat i isbn array.
