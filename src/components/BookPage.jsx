@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom"
 import useFetch from "../customHooks/useFetch"
+import { Rating } from "react-simple-star-rating"
 import Title from './Title'
 import Button from './Button'
 import Footer from './Footer'
 import star_outline from '../assets/Star_outline.svg'
 import Arrow_right_fill from '../assets/Arrow_right_fill.svg'
 import PlaceholderImg from '../assets/placeholder_img.jpg'
-import { Rating } from "react-simple-star-rating"
 
 export default function BookPage() {
 
@@ -15,8 +15,10 @@ export default function BookPage() {
 
     // Her kunne jeg heller benyttet books/works API til å hente ut en spesifikk bok: https://openlibrary.org/works/{id}.json. Men hadde ikke fått egenskaper som rating, first_publish_year, author_name osv uten å for eksempel kalle eget API for å hente ut dette
     const { content, isPending } = useFetch(`https://openlibrary.org/search.json?title=${title}&fields=key,title,author_name,isbn,cover_i,ratings_average,first_publish_year,first_sentence`)
-
+    
+    // Gjenoppretter strukturen til key
     const bookId = `/works/${id}`
+    // Ser etter og filterer på bok med bestemt key
     const contentFilter = content.docs?.filter((book) => {
         return book.key === bookId
     })

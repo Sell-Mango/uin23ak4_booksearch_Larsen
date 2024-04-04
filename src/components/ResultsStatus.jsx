@@ -1,4 +1,4 @@
-
+// Informasjon til bruker om status på interaksjoner
 export default function ResultsStatus({isPending, statusMessage, query, content}) {
 
     return (

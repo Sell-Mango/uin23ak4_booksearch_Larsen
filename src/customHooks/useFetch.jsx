@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 
+// Custom hook for å fetche data fra API
 function useFetch(query, varName) {
 
     const statusMessages = {
@@ -19,7 +20,6 @@ function useFetch(query, varName) {
           const data = await response.json()
     
           setContent(data)
-    
           setIsPending(false)
         }
         catch {
@@ -31,9 +31,10 @@ function useFetch(query, varName) {
       useEffect(() => {
         
         setIsPending(true)
+        // Starter ikke søk med mindre det er skrevet tre bokstaver. Gir beskjed til bruker om dette.
         if(query.length >= 3) {
+          // SetTimeout sørger for at APIet ikke fetches mens bruker skriver.
           const timer = setTimeout(() => getData(query), 700)
-    
           setStatusMessage(statusMessages.loading)
     
           return () => clearTimeout(timer)
@@ -43,7 +44,8 @@ function useFetch(query, varName) {
         }
     
       }, [ query ] )
-    
+      
+      // Returnerer innhold fra API, true eller false dersom API fetches og en statusmelding
       return { content, isPending, statusMessage }
 }
 
