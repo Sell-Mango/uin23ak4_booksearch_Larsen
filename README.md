@@ -10,4 +10,5 @@
 
 Følgende pakker er installert:
 - Sass
+- react-router-dom
 - react-simple-star-rating

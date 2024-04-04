@@ -7,7 +7,7 @@ import BookPage from './components/BookPage'
 function App() {
 
   const [query, setQuery] = useState("james bond")
-  const {content, isPending, statusMessage} = useFetch(`https://openlibrary.org/search.json?title=${query}&fields=key,title,author_name,isbn,cover_i,average_ratings,first_publish_year&limit=20`)
+  const {content, isPending, statusMessage} = useFetch(`https://openlibrary.org/search.json?title=${query}&fields=key,title,author_name,isbn,cover_i,ratings_average,first_publish_year&limit=20`)
   
   const handleSearch = (e) => {
     e.preventDefault()

@@ -6,6 +6,7 @@ import Footer from './Footer'
 import star_outline from '../assets/Star_outline.svg'
 import Arrow_right_fill from '../assets/Arrow_right_fill.svg'
 import PlaceholderImg from '../assets/placeholder_img.jpg'
+import { Rating } from "react-simple-star-rating"
 
 export default function BookPage() {
 
@@ -13,7 +14,7 @@ export default function BookPage() {
     const navigate = useNavigate()
 
     // Her kunne jeg heller benyttet books/works API til å hente ut en spesifikk bok: https://openlibrary.org/works/{id}.json. Men hadde ikke fått egenskaper som rating, first_publish_year, author_name osv uten å for eksempel kalle eget API for å hente ut dette
-    const { content, isPending } = useFetch(`https://openlibrary.org/search.json?title=${title}&fields=key,title,author_name,isbn,cover_i,average_ratings,first_publish_year,first_sentence`)
+    const { content, isPending } = useFetch(`https://openlibrary.org/search.json?title=${title}&fields=key,title,author_name,isbn,cover_i,ratings_average,first_publish_year,first_sentence`)
 
     const bookId = `/works/${id}`
     const contentFilter = content.docs?.filter((book) => {
@@ -31,8 +32,8 @@ export default function BookPage() {
             <section>
                 <p className="text-l"><span className="w-600">Author: </span> {!isPending && contentFilter[0].author_name}</p>
                 <p><span className="w-600">First published: </span>{!isPending && contentFilter[0].first_publish_year}</p>
-                <p>Rating: </p>
-                {!isPending && <p>{contentFilter[0]?.first_sentence}</p> }
+                <p className="rating">Rating: {!isPending && contentFilter[0].ratings_average ? <Rating initialValue={contentFilter[0].ratings_average} allowFraction={true} readonly={true} /> : "No rating"}</p>
+                {!isPending && <p>{!isPending && contentFilter[0].first_sentence}</p> }
                 {!isPending && (<Button href={`https://www.amazon.com/s?k=${contentFilter[0].isbn[0]}`} classes={["btn btn-m"]} text="Find on Amazon" />)}
                 
             </section>
