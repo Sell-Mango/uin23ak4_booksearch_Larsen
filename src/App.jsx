@@ -22,7 +22,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home isPending={isPending} statusMessage={statusMessage} query={query} content={content.docs} handleSearch={handleSearch} />} />
-        <Route path='/books/works/:id' element={<BookPage />} />
+        <Route path='/works/:id/:title' element={<BookPage />} />
       </Routes>
     </Router>
     </>

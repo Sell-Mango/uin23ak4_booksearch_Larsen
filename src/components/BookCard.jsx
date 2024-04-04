@@ -1,5 +1,6 @@
 import Button from './Button'
 import star_outline from '../assets/Star_outline.svg'
+import PlaceholderImg from '../assets/placeholder_img.jpg'
 
 export default function BookCard({ book }) {
 
@@ -10,12 +11,11 @@ export default function BookCard({ book }) {
             <h2>{book.title}</h2>
             <p>Author: {book.author_name}</p>
             <p>First published: {book.first_publish_year}</p>
-            { book.isbn?.[0] && (<Button href={`https://www.amazon.com/s?k=${book.isbn[0]}`} classes={["btn btn-m"]} text="Read more" />) }
-            <Button href={`/books${book.key}`} classes={["btn btn-m"]} text="Read more" />
+            <Button href={`${book.key}/${book.title}`} classes={["btn btn-m"]} text="Read more" />
           </section>
           <button><img src={star_outline} alt="" /></button>
           <picture>
-            <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="" /> 
+            <img src={book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : PlaceholderImg} alt="" /> 
           </picture>
         </article>
   )

@@ -6,15 +6,24 @@
     border: $border solid $border-color;
     font-weight: $weight;
     text-align: $align;
+    transition: .3s;
 }
 
 .btn {
     @include btn($secondary, 600, center);
     border-radius: $radius-l;
+
+    &:hover {
+      background-color: $accent;
+    }
 }
 
 .btn-fill {
     background-color: $accent;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 }
 
 .btn-icon {
@@ -79,6 +88,9 @@
 
     section {
         padding: $space-m;
+        @include flexDisplay(column, wrap);
+        align-items: flex-start;
+        
     }
 
     h2 {

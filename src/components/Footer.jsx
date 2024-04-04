@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export default function Footer() {
 
@@ -7,7 +8,7 @@ export default function Footer() {
         <nav>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a href="#">Favourites</a>
