@@ -16,7 +16,7 @@ export default function Home({isPending, statusMessage, query, content, handleSe
             <Button href="#" icon={[star_outline, "star icon"]} classes={["btn-fill", "btn-l", "btn-icon"]} text="Favourites" />
             <SearchBar handleSearch={handleSearch} query={query}/>
         </header>
-        <main>
+        <main id="main">
             <ResultsStatus isPending={isPending} statusMessage={statusMessage} query={query} content={content} />
             {!isPending && <BookCards content={content} /> }
         </main>

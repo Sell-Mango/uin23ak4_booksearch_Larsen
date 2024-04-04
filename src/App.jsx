@@ -20,6 +20,7 @@ function App() {
   return (
     <>
     <Router>
+      <a href="#main" className="skip-link">Skip to main content</a>
       <Routes>
         <Route path="/" element={<Home isPending={isPending} statusMessage={statusMessage} query={query} content={content.docs} handleSearch={handleSearch} />} />
         <Route path='/works/:id/:title' element={<BookPage />} />

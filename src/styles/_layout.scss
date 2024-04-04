@@ -18,6 +18,21 @@ body {
     padding-top: 5vh;
 }
 
+.skip-link {
+    position: absolute;
+    top: auto;
+    left: -1000rem;
+    background-color: $secondary;
+    color: $primary;
+    padding: 1rem;
+    font-size: $text-m;
+
+    &:focus {
+        left: auto;
+        top: 0;
+    }
+}
+
 header {
     @include flexDisplay(column, wrap, $space-m);
     align-items: flex-start;

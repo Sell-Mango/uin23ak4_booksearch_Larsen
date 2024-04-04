@@ -30,11 +30,11 @@ export default function BookPage() {
             {!isPending && <Title value={contentFilter[0].title} /> }
             <Button href="#" icon={[star_outline, "star icon"]} classes={["btn-fill", "btn-l", "btn-icon"]} text="Add to favourite" />
         </header>
-        <main className="bookContent">
+        <main id="main" className="bookContent">
             <section>
                 <p className="text-l"><span className="w-600">Author: </span> {!isPending && contentFilter[0].author_name}</p>
                 <p><span className="w-600">First published: </span>{!isPending && contentFilter[0].first_publish_year}</p>
-                <p className="rating">Rating: {!isPending && contentFilter[0].ratings_average ? <Rating initialValue={contentFilter[0].ratings_average} allowFraction={true} readonly={true} /> : "No rating"}</p>
+                <span className="rating">Rating: {!isPending && contentFilter[0].ratings_average ? <Rating initialValue={contentFilter[0].ratings_average} allowFraction={true} readonly={true} /> : "No rating"}</span>
                 {!isPending && <p>{!isPending && contentFilter[0].first_sentence}</p> }
                 {!isPending && (<Button href={`https://www.amazon.com/s?k=${contentFilter[0].isbn[0]}`} classes={["btn btn-m"]} text="Find on Amazon" />)}
                 

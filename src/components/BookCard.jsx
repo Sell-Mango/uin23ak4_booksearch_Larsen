@@ -10,8 +10,8 @@ export default function BookCard({ book }) {
           <section>
             <span className="rating">Rating: {book.ratings_average ? ( <Rating initialValue={book.ratings_average} allowFraction={true} readonly={true} />) : "No rating" }</span>
             <h2>{book.title}</h2>
-            <p>Author: {book.author_name}</p>
-            <p>First published: {book.first_publish_year}</p>
+            <span className="text-l">Author: {book.author_name}</span>
+            <span className="text-l">First published: {book.first_publish_year}</span>
             { /* Knapp som router til en enkelt bok */ }
             <Button href={`${book.key}/${book.title}`} classes={["btn btn-m"]} text="Read more" />
           </section>
